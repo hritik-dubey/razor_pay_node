@@ -1,10 +1,7 @@
 require("dotenv").config;
 const Razorpay = require('razorpay');
-// const RAZORPAY_ID_KEY = process.env.RAZORPAY_ID_KEY;
-// const RAZORPAY_SECRET_KEY = process.env.RAZORPAY_SECRET_KEY;
-RAZORPAY_ID_KEY = "rzp_test_jg5DLX3jNS9fJ4"
-RAZORPAY_SECRET_KEY = "NWBCqYvgyktp6k3H2cSw2K97"
-
+const RAZORPAY_ID_KEY = process.env.RAZORPAY_ID_KEY;
+const RAZORPAY_SECRET_KEY = process.env.RAZORPAY_SECRET_KEY;
 const razorpayInstance = new Razorpay({
     key_id: RAZORPAY_ID_KEY ?? "",
     key_secret: RAZORPAY_SECRET_KEY ?? ""
@@ -41,9 +38,9 @@ const createOrder = async (req, res) => {
                         key_id: RAZORPAY_ID_KEY??"",
                         product_name: req.body.name,
                         description: req.body.description,
-                        contact: "7284063310",
-                        name: "Hritik Dubey",
-                        email: "dubeyhritik32@gmail.com"
+                        contact: process.env.NUMBER,
+                        name: process.env.NAME,
+                        email: process.env.EMAIL
                     });
                 }
                 else {
